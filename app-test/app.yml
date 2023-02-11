@@ -70,7 +70,7 @@ metadata:
   name: app-test-1-cert
   namespace: app-test-1
 spec:
-  secretName: app-test-1-tls-secret
+  # secretName: app-test-1-tls-secret
   issuerRef:
     name: ssl-issuer
     kind: ClusterIssuer
