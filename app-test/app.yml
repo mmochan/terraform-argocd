@@ -63,3 +63,16 @@ spec:
     - hosts:
         - app-test.home.aramiske.au
       secretName: app-test-1-tls-secret
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: app-test-1-cert
+  namespace: app-test-1
+spec:
+  secretName: app-test-1-tls-secret
+  issuerRef:
+    name: ssl-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - app-test.home.aramiske.au
