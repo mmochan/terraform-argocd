@@ -73,6 +73,6 @@ spec:
   secretName: app-test-1-tls-secret
   issuerRef:
     name: ssl-issuer
-    kind: ClusterIssuer
+    kind: Issuer
   dnsNames:
     - app-test.home.aramiske.au
