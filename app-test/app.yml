@@ -76,3 +76,12 @@ spec:
     kind: ClusterIssuer
   dnsNames:
     - app-test.home.aramiske.au
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ca-issuer
+  namespace: app-test-1
+spec:
+  ca:
+    secretName: app-test-1-ca-key-pair
