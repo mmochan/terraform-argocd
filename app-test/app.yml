@@ -1,25 +1,25 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: app-test-1
+  name: app-test
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-test-1-deploy
-  namespace: app-test-1
+  name: app-test-deploy
+  namespace: app-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app-test-1
+      app: app-test
   template:
     metadata:
       labels:
-        app: app-test-1
+        app: app-test
     spec:
       containers:
-        - name: app-test-1
+        - name: app-test
           image: nginx
           ports:
             - name: web
@@ -28,10 +28,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-test-1-svc
-  namespace: app-test-1
+  name: app-test-svc
+  namespace: app-test
   labels:
-    app: app-test-1
+    app: app-test
 spec:
   type: ClusterIP
   ports:
@@ -40,15 +40,15 @@ spec:
       targetPort: 80
       protocol: TCP
   selector:
-    app: app-test-1
+    app: app-test
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 annotations:
   cert-manager.io/cluster-issuer: ssl-issuer
 metadata:
-  name: app-test-1-ingress
-  namespace: app-test-1
+  name: app-test-ingress
+  namespace: app-test
 spec:
   rules:
     - host: "app-test.home.aramiske.au"
@@ -58,21 +58,21 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: app-test-1-svc
+                name: app-test-svc
                 port:
                   number: 80
   tls:
     - hosts:
         - app-test.home.aramiske.au
-      secretName: app-test-1-tls-secret
+      secretName: app-test-tls-secret
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: app-test-1-cert
-  namespace: app-test-1
+  name: app-test-cert
+  namespace: app-test
 spec:
-  secretName: app-test-1-tls-secret
+  secretName: app-test-tls-secret
   issuerRef:
     name: ssl-issuer
     kind: ClusterIssuer
