@@ -8,13 +8,13 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`argocd.kube-demo-1.home.aramiske.au`)
+      match: Host(`argocd.home.aramiske.au`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.kube-demo-1.home.aramiske.au`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`argocd.home.aramiske.au`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
@@ -34,4 +34,4 @@ spec:
     name: ssl-issuer
     kind: ClusterIssuer
   dnsNames:
-    - argocd.kube-demo-1.home.aramiske.au
+    - argocd.home.aramiske.au

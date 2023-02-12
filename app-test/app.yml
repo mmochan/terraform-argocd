@@ -78,3 +78,11 @@ spec:
     kind: ClusterIssuer
   dnsNames:
     - app-test.home.aramiske.au
+
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: ssl-issuer
+spec:
+  selfSigned: {}
