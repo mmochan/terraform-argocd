@@ -42,4 +42,4 @@ spec:
       deleteClaim: true
   entityOperator:
     topicOperator: {}
-    userOperator: {}3
+    userOperator: {}
