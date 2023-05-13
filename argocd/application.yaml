@@ -4,7 +4,7 @@ server:
       namespace: argocd
       project: default
       source:
-        repoURL: https://github.com/mmochan/argocd.git
+        repoURL: https://github.com/mmochan/terraform-argocd.git
         targetRevision: HEAD
         path: argocd/manifests/cluster
         directory:
