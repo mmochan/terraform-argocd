@@ -2,7 +2,6 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: frontend-deployment-hpa
-  namespace: admin
 spec:
   minReplicas: 1
   maxReplicas: 2
