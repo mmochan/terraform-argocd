@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
-  namespace: admin
+  labels:
+    app: apache
+  name: portfolio
 spec:
+  replicas: 1
   selector:
-  matchLabels:
-    app: frontend-deployment
+    matchLabels:
+      app: apache
+  strategy: {}
   template:
-  metadata:
-    labels:
-      app: frontend-deployment
-  spec:
-    containers:
-      - name: app
-        image: nginx:latest
-        ports:
-          - name: http
-            containerPort: 8080
-            protocol: TCP
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+        - image: singharunk/webserver:v3
+          name: portfolio
+          resources: {}
