@@ -17,6 +17,6 @@ spec:
         app: trading
     spec:
       containers:
-        - image: smpdevaeacrakssmp.azurecr.io/nginx:latest
+        - image: nginx:latest
           name: trading
           resources: {}

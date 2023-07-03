@@ -17,6 +17,6 @@ spec:
         app: cpi-api
     spec:
       containers:
-        - image: smpdevaeacrakssmp.azurecr.io/nginx:latest
+        - image: nginx:latest
           name: qra
           resources: {}
