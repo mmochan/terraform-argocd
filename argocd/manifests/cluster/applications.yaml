@@ -12,8 +12,7 @@ spec:
   source:
     path: argocd/kustomize/retail/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
-    # repoURL: https://dev.azure.com/Stanwell/SMP/_git/smp-apps
-    targetRevision: argo-app-config
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
@@ -32,7 +31,7 @@ spec:
   source:
     path: argocd/kustomize/qra/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
-    targetRevision: argo-app-config
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
@@ -51,7 +50,7 @@ spec:
   source:
     path: argocd/kustomize/mars/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
-    targetRevision: argo-app-config
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
@@ -70,7 +69,7 @@ spec:
   source:
     path: argocd/kustomize/trading/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
-    targetRevision: argo-app-config
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
