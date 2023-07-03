@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mars
+  name: mars-deployment
+  namespace: mars
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mars
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: mars
+    spec:
+      containers:
+        - image: nginx:latest
+          name: mars
+          resources: {}

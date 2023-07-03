@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cpi-api
+  name: cpi-api-deployment
+  namespace: qra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpi-api
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: cpi-api
+    spec:
+      containers:
+        - image: smpdevaeacrakssmp.azurecr.io/nginx:latest
+          name: qra
+          resources: {}

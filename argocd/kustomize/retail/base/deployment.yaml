@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: retail
+  name: retail-deployment
+  namespace: retail
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retail
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: retail
+    spec:
+      containers:
+        - image: smpdevaeacrakssmp.azurecr.io/nginx:latest
+          name: retail
+          resources: {}

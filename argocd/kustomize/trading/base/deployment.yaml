@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: trading
+  name: trading-deployment
+  namespace: trading
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trading
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: trading
+    spec:
+      containers:
+        - image: smpdevaeacrakssmp.azurecr.io/nginx:latest
+          name: trading
+          resources: {}

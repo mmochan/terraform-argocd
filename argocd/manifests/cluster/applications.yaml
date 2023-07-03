@@ -1,20 +1,80 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kafka
+  name: retail
   namespace: argocd
 spec:
   destination:
-    namespace: kafka
+    namespace: retail
     server: https://kubernetes.default.svc
-  project: kafka
+  project: retail
   source:
-    path: argocd/manifests/kafka
-    repoURL: https://github.com/mmochan/terraform-argocd.git
-    targetRevision: HEAD
+    path: argocd/kustomize/retail/overlays/dev
+    repoURL: https://dev.azure.com/Stanwell/SMP/_git/smp-apps
+    targetRevision: argo-app-config
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
+    automated:
+      prune: false
+      selfHeal: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: qra
+  namespace: argocd
+spec:
+  destination:
+    namespace: qra
+    server: https://kubernetes.default.svc
+  project: qra
+  source:
+    path: # argocd/kustomize/qra/overlays/dev
+    valueFrom:
+      configMapKeyRef:
+        name: cluster-app-data
+        key: environment
+    repoURL: https://dev.azure.com/Stanwell/SMP/_git/smp-apps
+    targetRevision: argo-app-config
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mars
+  namespace: argocd
+spec:
+  destination:
+    namespace: mars
+    server: https://kubernetes.default.svc
+  project: mars
+  source:
+    path: argocd/kustomize/mars/overlays/dev
+    repoURL: https://dev.azure.com/Stanwell/SMP/_git/smp-apps
+    targetRevision: argo-app-config
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trading
+  namespace: argocd
+spec:
+  destination:
+    namespace: trading
+    server: https://kubernetes.default.svc
+  project: trading
+  source:
+    path: argocd/kustomize/trading/overlays/dev
+    repoURL: https://dev.azure.com/Stanwell/SMP/_git/smp-apps
+    targetRevision: argo-app-config
+  syncPolicy:
     automated:
       prune: false
       selfHeal: false
