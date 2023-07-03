@@ -29,11 +29,7 @@ spec:
     server: https://kubernetes.default.svc
   project: qra
   source:
-    path: # argocd/kustomize/qra/overlays/dev
-    valueFrom:
-      configMapKeyRef:
-        name: cluster-app-data
-        key: environment
+    path: argocd/kustomize/qra/overlays/dev
     repoURL: https://dev.azure.com/Stanwell/SMP/_git/smp-apps
     targetRevision: argo-app-config
   syncPolicy:
