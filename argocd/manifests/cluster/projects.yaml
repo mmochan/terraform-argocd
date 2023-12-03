@@ -19,7 +19,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: workflows
-  namespace: argcd
+  namespace: argocd
 spec:
   clusterResourceWhitelist:
     - group: "*"
