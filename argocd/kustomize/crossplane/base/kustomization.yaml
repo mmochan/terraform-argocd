@@ -5,7 +5,7 @@ helmCharts:
 # Helm Charts: https://artifacthub.io/packages/helm/crossplane/crossplane
 - name: argo-events
   repo: https://charts.crossplane.io/stable
-  version: 1.14.3
+  # version: crossplane-1.14.3
   releaseName: crossplane
   namespace: crossplane
 
