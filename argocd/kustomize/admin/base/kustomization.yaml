@@ -3,12 +3,13 @@ kind: Kustomization
 
 
 helmCharts:
-# Helm Charts: https://github.com/argoproj/argo-helm/tree/main/charts/argo-events
-- name: argo-events
-  repo: https://argoproj.github.io/argo-helm
-  version: 2.4.1
-  releaseName: argo-events
-  namespace: argo-events
-  valuesFile: argo_events/argo_events.yaml
+  # https://github.com/bitnami-labs/sealed-secrets/tree/main/helm/sealed-secrets
+  - name: sealed-secrets
+    repo: https://bitnami-labs.github.io/sealed-secrets
+    version: "2.13.3"
+    releaseName: sealed-secrets
+    namespace: admin
+    includeCRDs: true
+    valuesFile: sealed-secrets.yaml
 
 resources: []
