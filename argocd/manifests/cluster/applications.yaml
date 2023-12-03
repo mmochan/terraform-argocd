@@ -48,7 +48,7 @@ spec:
     server: https://kubernetes.default.svc
   project: argo-events
   source:
-    path: argocd/kustomize/processing/overlays/dev
+    path: argocd/kustomize/argo-events/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
     targetRevision: main
   syncPolicy:
