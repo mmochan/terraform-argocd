@@ -9,4 +9,5 @@ helmCharts:
   releaseName: crossplane
   namespace: crossplane
 
-resources: []
+resources:
+  - terraform_provider.yaml
