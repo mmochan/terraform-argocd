@@ -1,0 +1,7 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-azure-management
+  namespace: crossplane
+spec:
+  package: xpkg.upbound.io/upbound/provider-azure-management:v0.39.0
