@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: trading
-  name: trading-deployment
-  namespace: trading
+    app: mars
+  name: mars-deployment
+  namespace: mars
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: trading
+      app: mars
   strategy: {}
   template:
     metadata:
       labels:
-        app: trading
+        app: mars
     spec:
       containers:
         - image: nginx:latest
-          name: trading
+          name: mars
           resources: {}

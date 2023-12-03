@@ -15,8 +15,8 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -25,7 +25,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argo
+    namespace: processing
     server: https://kubernetes.default.svc
   project: argo-workflows
   source:
@@ -34,8 +34,8 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -53,5 +53,5 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
