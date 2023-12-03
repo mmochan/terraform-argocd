@@ -27,7 +27,7 @@ spec:
   destination:
     namespace: processing
     server: https://kubernetes.default.svc
-  project: argo-workflows
+  project: workflows
   source:
     path: argocd/kustomize/processing/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
@@ -46,7 +46,7 @@ spec:
   destination:
     namespace: argo-events
     server: https://kubernetes.default.svc
-  project: argo-events
+  project: events
   source:
     path: argocd/kustomize/argo-events/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
