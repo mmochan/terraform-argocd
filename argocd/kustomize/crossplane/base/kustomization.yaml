@@ -5,7 +5,6 @@ helmCharts:
 # Helm Charts: https://artifacthub.io/packages/helm/crossplane/crossplane
 - name: crossplane
   repo: https://charts.crossplane.io/stable
-  # version: crossplane-1.14.3
   releaseName: crossplane
   namespace: crossplane
 
