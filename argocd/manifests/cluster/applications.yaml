@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   project: crossplane
   source:
-    path: argocd/kustomize/retail/crossplane/dev
+    path: argocd/kustomize/crossplane/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
     targetRevision: main
   syncPolicy:
