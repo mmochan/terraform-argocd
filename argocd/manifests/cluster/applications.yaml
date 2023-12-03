@@ -2,15 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: retail
+  name: crossplane
   namespace: argocd
 spec:
   destination:
-    namespace: retail
+    namespace: crossplane
     server: https://kubernetes.default.svc
-  project: retail
+  project: crossplane
   source:
-    path: argocd/kustomize/retail/overlays/dev
+    path: argocd/kustomize/retail/crossplane/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
     targetRevision: main
   syncPolicy:
@@ -21,15 +21,15 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: qra
-  namespace: argocd
+  name: argo-workflows
+  namespace: argo
 spec:
   destination:
-    namespace: qra
+    namespace: argo
     server: https://kubernetes.default.svc
-  project: qra
+  project: argo-workflows
   source:
-    path: argocd/kustomize/qra/overlays/dev
+    path: argocd/kustomize/argo-workflows/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
     targetRevision: main
   syncPolicy:
@@ -40,34 +40,15 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mars
+  name: argo-events
   namespace: argocd
 spec:
   destination:
-    namespace: mars
+    namespace: argo-events
     server: https://kubernetes.default.svc
-  project: mars
+  project: argo-events
   source:
-    path: argocd/kustomize/mars/overlays/dev
-    repoURL: https://github.com/mmochan/terraform-argocd.git
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: trading
-  namespace: argocd
-spec:
-  destination:
-    namespace: trading
-    server: https://kubernetes.default.svc
-  project: trading
-  source:
-    path: argocd/kustomize/trading/overlays/dev
+    path: argocd/kustomize/argo-events/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
     targetRevision: main
   syncPolicy:
