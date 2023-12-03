@@ -2,13 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 helmCharts:
-  # https://github.com/bitnami-labs/sealed-secrets/tree/main/helm/sealed-secrets
-  - name: sealed-secrets
-    repo: https://bitnami-labs.github.io/sealed-secrets
-    version: "2.13.3"
-    releaseName: sealed-secrets
-    namespace: admin
-    includeCRDs: true
-    valuesFile: sealed-secrets.yaml
+# Helm Charts: https://github.com/argoproj/argo-helm/tree/main/charts/argo-workflows
+  - name: argo-workflows
+    repo: https://argoproj.github.io/argo-helm
+    version: 0.39.5
+    releaseName: argo-workflows
+    namespace: processing
+    valuesFile: argo_workflows/argo_workflows.yaml
 
 resources: []
