@@ -18,8 +18,8 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: argo-workflows
-  namespace: argo
+  name: workflows
+  namespace: argcd
 spec:
   clusterResourceWhitelist:
     - group: "*"
@@ -34,8 +34,8 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: argo-events
-  namespace: argo-events
+  name: events
+  namespace: argocd
 spec:
   clusterResourceWhitelist:
     - group: "*"
