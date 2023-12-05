@@ -10,3 +10,4 @@ helmCharts:
 
 resources:
   - terraform_provider.yaml
+  - azure_family_provider.yaml
