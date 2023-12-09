@@ -86,7 +86,7 @@ spec:
     server: https://kubernetes.default.svc
   project: backstage
   source:
-    path: argocd/kustomize/admin/overlays/dev
+    path: argocd/kustomize/backstage/overlays/dev
     repoURL: https://github.com/mmochan/terraform-argocd.git
     targetRevision: main
   syncPolicy:
