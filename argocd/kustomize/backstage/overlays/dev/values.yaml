@@ -412,7 +412,7 @@ metrics:
 
     # -- If enabled, a ServiceMonitor resource for Prometheus Operator is created
     # <br /> Prometheus Operator must be installed in your cluster prior to enabling.
-    enabled: true
+    enabled: false
 
     # -- ServiceMonitor annotations
     annotations: {}
