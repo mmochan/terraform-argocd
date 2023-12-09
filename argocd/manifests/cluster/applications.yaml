@@ -74,3 +74,22 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backstage
+  namespace: argocd
+spec:
+  destination:
+    namespace: backstage
+    server: https://kubernetes.default.svc
+  project: backstage
+  source:
+    path: argocd/kustomize/admin/overlays/dev
+    repoURL: https://github.com/mmochan/terraform-argocd.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

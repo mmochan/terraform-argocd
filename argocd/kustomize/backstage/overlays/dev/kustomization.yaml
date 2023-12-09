@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: backstage
+
+commonAnnotations:
+  note: "Welcome to Development"
+
+helmCharts:
+# https://github.com/backstage/charts
+- name: backstage
+  repo: https://backstage.github.io/charts
+  releaseName: backstage
+  namespace: backstage
+  version: "1.8.1"
+  includeCRDs: true
+  # For now manually pull values from the existing configmap created as part of infrastructure pipeline
+  # kubectl -n backstage get configmap backstage-server-config -o jsonpath='{.data.values\.yaml}' > values.yaml
+  valuesFile: values.yaml
+
+resources:
+  - ../../base
