@@ -405,7 +405,7 @@ postgresql:
       userPasswordKey: "user_password"
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: "replicaion_password"
+      replicationPasswordKey: "replication_password"
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
   architecture: replication
