@@ -393,22 +393,22 @@ postgresql:
     # password: ""
 
     # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: "cluster-backstage-app"
+    existingSecret: ""
 
     # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
 
       # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: password
+      adminPasswordKey: ""
 
       # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: password
+      userPasswordKey: ""
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: password
+      replicationPasswordKey: ""
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
-  architecture: replication
+  architecture: standalone
 
 # -- Service Account Configuration
 # @default -- See below
