@@ -126,6 +126,11 @@ backstage:
 
   # -- Extra app configuration files to inline into command arguments
   extraAppConfig: []
+    # app:
+    #   title: Foobar Backstage App
+    #   baseUrl: http://localhost:7007
+    # organization:
+    #   name: The Aramiske
 
   # -- Deployment sidecars
   extraContainers: []
@@ -228,7 +233,24 @@ backstage:
   #   app:
   #     baseUrl: https://somedomain.tld
   # -- Generates ConfigMap and configures it in the Backstage pods
-  appConfig: {}
+  appConfig:
+    app:
+      title: Aramiske Backstage App
+    organization:
+      name: The Aramiske
+
+    kubernetes:
+      serviceLocatorMethod:
+        type: multiTenant
+      clusterLocatorMethods:
+        - type: config
+          clusters:
+            - url: https://host.docker.internal:60722
+              name: kind
+              authProvider: serviceAccount
+              skipTLSVerify: true
+              skipMetricsLookup: true
+              serviceAccountToken: ${K8S_MINIKUBE_TOKEN}
 
 
 
@@ -354,31 +376,31 @@ networkPolicy:
 postgresql:
 
   # -- Switch to enable or disable the PostgreSQL helm chart
-  enabled: false
+  enabled: true
 
   # -- The authentication details of the Postgres database
   auth:
 
-    # -- Name for a custom user to create
-    username: bn_backstage
+    # # -- Name for a custom user to create
+    # username: bn_backstage
 
-    # -- Password for the custom user to create
-    password: ""
+    # # -- Password for the custom user to create
+    # password: ""
 
     # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: ""
+    existingSecret: "cluster-backstage-app"
 
     # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
 
       # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: admin-password
+      adminPasswordKey: password
 
       # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: user-password
+      userPasswordKey: password
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: replication-password
+      replicationPasswordKey: password
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
   architecture: standalone
