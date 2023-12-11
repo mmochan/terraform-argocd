@@ -243,9 +243,9 @@ backstage:
 
     backend:
       baseUrl: http://localhost:7007
-      database:
-        client: pg
-        # connection: ':memory:'
+      # database:
+      #   client: pg
+      #   # connection: ':memory:'
 
     kubernetes:
       serviceLocatorMethod:
