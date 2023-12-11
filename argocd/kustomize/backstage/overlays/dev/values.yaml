@@ -239,19 +239,6 @@ backstage:
     organization:
       name: The Aramiske
 
-    kubernetes:
-      serviceLocatorMethod:
-        type: multiTenant
-      clusterLocatorMethods:
-        - type: config
-          clusters:
-            - url: https://host.docker.internal:60722
-              name: kind
-              authProvider: serviceAccount
-              skipTLSVerify: true
-              skipMetricsLookup: true
-              serviceAccountToken: ${K8S_MINIKUBE_TOKEN}
-
 
 
   # -- Node labels for pod assignment
