@@ -241,8 +241,8 @@ backstage:
     organization:
       name: "Aramiske Company"
 
-    backend:
-      baseUrl: http://localhost:7007
+    # backend:
+    #   baseUrl: http://localhost:7007
       # database:
       #   client: pg
       #   # connection: ':memory:'
