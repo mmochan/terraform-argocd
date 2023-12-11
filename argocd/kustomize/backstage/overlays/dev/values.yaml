@@ -127,10 +127,10 @@ backstage:
   # -- Extra app configuration files to inline into command arguments
   extraAppConfig: []
     # app:
-    #   title: Foobar Backstage App
+    #   title: "Foobar Backstage App"
     #   baseUrl: http://localhost:7007
     # organization:
-    #   name: The Aramiske
+    #   name: "The Aramiske"
 
   # -- Deployment sidecars
   extraContainers: []
@@ -233,11 +233,29 @@ backstage:
   #   app:
   #     baseUrl: https://somedomain.tld
   # -- Generates ConfigMap and configures it in the Backstage pods
-  appConfig: {}
-    # app:
-    #   title: Aramiske Backstage App
-    # organization:
-    #   name: The Aramiske
+  appConfig:
+    app:
+      title: "Aramiske Backstage App"
+      baseUrl: http://localhost:3000
+
+    organization:
+      name: "Aramiske Company"
+
+    backend:
+      baseUrl: http://localhost:7007
+
+    kubernetes:
+      serviceLocatorMethod:
+        type: multiTenant
+      clusterLocatorMethods:
+        - type: config
+          clusters:
+            - url: host.docker.internal
+              name: kind
+              authProvider: serviceAccount
+              skipTLSVerify: true
+              skipMetricsLookup: true
+              serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IkZ6WGdwR3FfdjZkN1ZzNFZsWE5YYjFGLVBqRVh3U3VSY0FDYVcxc3d5RFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzMzODA1MjQ4LCJpYXQiOjE3MDIyNjkyNDgsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJiYWNrc3RhZ2UiLCJwb2QiOnsibmFtZSI6ImJhY2tzdGFnZS03ZmQ4OTk0NTdjLWQ2dmh2IiwidWlkIjoiN2EyM2JkYWMtNDQ4Zi00YTM2LWIyNDktOWJlZWRkMmIzYzE2In0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJkZWZhdWx0IiwidWlkIjoiNjBjOGZhYzctOTdkZS00N2M4LWJmZGUtN2IwZGQ5MjgyMTAzIn0sIndhcm5hZnRlciI6MTcwMjI3Mjg1NX0sIm5iZiI6MTcwMjI2OTI0OCwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmJhY2tzdGFnZTpkZWZhdWx0In0.IPukHV4e0KC2Wy4f97gBhx7xB27NF9mlpFSxeXy59HTUt1F9gj7g21z-1FtHLjQqtu9XDjQNJ7MMJyhdPm2EG8uJKqL_pwiy_qrbDRZcMNSm1PZjwJLCQGByNwN95v7wdmC5ctOyscdd1muYY3Tt6jW45Ijm8IWXJGtLNiXq5J6xvamRiAPJ8lkqfaZmIZfpInqdtDil5DHhtmFGNoefgHOfIIzg51qOryJOkpNqWfOF_5JoIklKxdBJpv_CPubzZEffJm5i8o-0FflCB84Y8VkM_8nqM6bML7fNZHQAnQDGNknC3wiGDH4E11XMArWMbho105z2imMlW20bORKH8A
 
 
 
@@ -363,7 +381,7 @@ networkPolicy:
 postgresql:
 
   # -- Switch to enable or disable the PostgreSQL helm chart
-  enabled: true
+  enabled: false
 
   # -- The authentication details of the Postgres database
   auth:
@@ -390,7 +408,7 @@ postgresql:
       replicationPasswordKey: password
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
-  architecture: standalone
+  architecture: replication
 
 # -- Service Account Configuration
 # @default -- See below
