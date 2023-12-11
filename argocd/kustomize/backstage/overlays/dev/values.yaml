@@ -243,9 +243,6 @@ backstage:
 
     backend:
       baseUrl: http://localhost:7007
-      database:
-        client: better-sqlite3
-        connection: ':memory:'
 
     kubernetes:
       serviceLocatorMethod:
@@ -258,7 +255,7 @@ backstage:
               authProvider: serviceAccount
               skipTLSVerify: true
               skipMetricsLookup: true
-              serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IkZ6WGdwR3FfdjZkN1ZzNFZsWE5YYjFGLVBqRVh3U3VSY0FDYVcxc3d5RFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzMzODA1MjQ4LCJpYXQiOjE3MDIyNjkyNDgsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJiYWNrc3RhZ2UiLCJwb2QiOnsibmFtZSI6ImJhY2tzdGFnZS03ZmQ4OTk0NTdjLWQ2dmh2IiwidWlkIjoiN2EyM2JkYWMtNDQ4Zi00YTM2LWIyNDktOWJlZWRkMmIzYzE2In0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJkZWZhdWx0IiwidWlkIjoiNjBjOGZhYzctOTdkZS00N2M4LWJmZGUtN2IwZGQ5MjgyMTAzIn0sIndhcm5hZnRlciI6MTcwMjI3Mjg1NX0sIm5iZiI6MTcwMjI2OTI0OCwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmJhY2tzdGFnZTpkZWZhdWx0In0.IPukHV4e0KC2Wy4f97gBhx7xB27NF9mlpFSxeXy59HTUt1F9gj7g21z-1FtHLjQqtu9XDjQNJ7MMJyhdPm2EG8uJKqL_pwiy_qrbDRZcMNSm1PZjwJLCQGByNwN95v7wdmC5ctOyscdd1muYY3Tt6jW45Ijm8IWXJGtLNiXq5J6xvamRiAPJ8lkqfaZmIZfpInqdtDil5DHhtmFGNoefgHOfIIzg51qOryJOkpNqWfOF_5JoIklKxdBJpv_CPubzZEffJm5i8o-0FflCB84Y8VkM_8nqM6bML7fNZHQAnQDGNknC3wiGDH4E11XMArWMbho105z2imMlW20bORKH8A
+              serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IkZ6WGdwR3FfdjZkN1ZzNFZsWE5YYjFGLVBqRVh3U3VSY0FDYVcxc3d5RFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzAyMjc4NDMyLCJpYXQiOjE3MDIyNzQ4MzIsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJiYWNrc3RhZ2UiLCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiYmFja3N0YWdlIiwidWlkIjoiMjJmYjdiYzctZDU1Ny00ZWYwLTg0YjAtMDUxMjMwNGM3MTkxIn19LCJuYmYiOjE3MDIyNzQ4MzIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpiYWNrc3RhZ2U6YmFja3N0YWdlIn0.mgj7vxIsgy0gY_N7TdMpS0pUW_LlUNcZnPvcGntBXX2PzJNtIsilkHqeQt0UG7iZrICBvQFk3m8_bna20hEy929UXpWBVh5xpUuE9uSgf2ay1gqY2KK-V1O5q-UswCMJB94TMzj5k1TqBfTQOzb-MhiUMftwt_Us2xG0XtfQ-eGH2V4toWTdrGPRx4viGX2C2Sw2-E8syMHhPZXYEfs755klGEZtu4lhFu-nufV1Hzfucl_5bhCwuz4GljCyvQdAgbFVmoyVEnk59sUzv9T7O-HM4Q94iPjFgiP9lDCoQy05BimRfsCq7Z1gnKt6HMNQpePUJO3DLLKj9wdZaDbdiQ
 
 
 
@@ -384,7 +381,7 @@ networkPolicy:
 postgresql:
 
   # -- Switch to enable or disable the PostgreSQL helm chart
-  enabled: false
+  enabled: true
 
   # -- The authentication details of the Postgres database
   auth:
@@ -396,22 +393,22 @@ postgresql:
     # password: ""
 
     # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: ""
+    existingSecret: "database-creds"
 
     # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
 
       # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: ""
+      adminPasswordKey: "admin_password"
 
       # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: ""
+      userPasswordKey: "user_password"
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: ""
+      replicationPasswordKey: "replicaion_password"
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
-  architecture: standalone
+  architecture: replication
 
 # -- Service Account Configuration
 # @default -- See below

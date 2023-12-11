@@ -19,6 +19,5 @@ helmCharts:
   valuesFile: values.yaml
 
 resources:
-  # - postgres.yaml
   - default-cluster-admin-clusterrolebinding.yaml
   - ../../base
