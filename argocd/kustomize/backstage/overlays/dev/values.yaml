@@ -243,6 +243,9 @@ backstage:
 
     backend:
       baseUrl: http://localhost:7007
+      database:
+        client: better-sqlite3
+        connection: ':memory:'
 
     kubernetes:
       serviceLocatorMethod:
@@ -415,7 +418,7 @@ postgresql:
 serviceAccount:
 
   # -- Enable the creation of a ServiceAccount for Backstage pods
-  create: false
+  create: true
 
   # -- Name of the ServiceAccount to use
   # If not set and `serviceAccount.create` is true, a name is generated
