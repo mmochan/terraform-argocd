@@ -233,11 +233,11 @@ backstage:
   #   app:
   #     baseUrl: https://somedomain.tld
   # -- Generates ConfigMap and configures it in the Backstage pods
-  appConfig:
-    app:
-      title: Aramiske Backstage App
-    organization:
-      name: The Aramiske
+  appConfig: {}
+    # app:
+    #   title: Aramiske Backstage App
+    # organization:
+    #   name: The Aramiske
 
 
 
