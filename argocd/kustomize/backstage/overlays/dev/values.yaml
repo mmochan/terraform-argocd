@@ -250,6 +250,7 @@ backstage:
           user: app
           password: qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL
           port: 5432
+          database: app
 
     kubernetes:
       serviceLocatorMethod:
@@ -400,19 +401,19 @@ postgresql:
     # password: ""
 
     # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: "database-creds"
+    existingSecret: "backstage-cluster-app"
 
     # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
 
       # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: "admin_password"
+      adminPasswordKey: "password"
 
       # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: "user_password"
+      userPasswordKey: "password"
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: "replication_password"
+      replicationPasswordKey: "password"
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
   architecture: replication
