@@ -2,16 +2,30 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: backstage-cluster
+  namespace: backstage
 spec:
   instances: 3
 
   bootstrap:
     initdb:
-      - type: sql
-        content: CREATE DATABASE backstage_plugin_catalog;
+      database: backstage_plugin_catalog
+      owner: backstage
+      secret:
+        name: backstage-db-secret
 
   storage:
     size: 1Gi
 
   monitoring:
     enablePodMonitor: false
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backstage-db-secret
+  namespace: backstage
+data:
+  username: backstage
+  password: password
+type: kubernetes.io/basic-auth

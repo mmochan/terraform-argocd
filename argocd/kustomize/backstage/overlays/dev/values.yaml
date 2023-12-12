@@ -247,14 +247,13 @@ backstage:
         client: pg
         connection:
           host: backstage-cluster-rw
-          user: app
-          password: qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL
+          user: backstage
+          password: password
           port: 5432
-          database: app
-        plugin:
-          auth:
-            connection:
-              database: app
+        # plugin:
+        #   auth:
+        #     connection:
+        #       database: app
 
     kubernetes:
       serviceLocatorMethod:
