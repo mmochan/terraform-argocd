@@ -6,12 +6,34 @@ metadata:
 spec:
   instances: 3
 
-  # bootstrap:
-  #   initdb:
-  #     database: backstage_plugin_catalog
-  #     owner: backstage
-  #     secret:
-  #       name: backstage-db-secret
+  bootstrap:
+    # initdb:
+    #   database: backstage_plugin_catalog
+    #   owner: backstage_plugin_catalog
+    #   secret:
+    #     name: backstage-db-secret
+
+    initdb:
+      - database: backstage_plugin_catalog
+        roles:
+          - name: backstage_plugin_catalog
+            password: "password1"
+            options:
+              - CREATEDB
+              - CREATEROLE
+          # - name: backstage_plugin_scaffolderer
+          #   password: "password2"
+          #   options:
+          #     - CREATEDB
+          #     - CREATEROLE
+
+      - database: backstage_plugin_scaffolderer
+        roles:
+          - name: backstage_plugin_scaffolderer
+            password: "password2"
+            options:
+              - CREATEDB
+              - CREATEROLE
 
   storage:
     size: 1Gi

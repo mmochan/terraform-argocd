@@ -261,8 +261,10 @@ backstage:
         client: pg
         connection: 'postgresql://backstage-cluster-rw:5432'
         plugin:
+          # auth:
+          #   connection: 'postgresql://app:qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL@backstage-cluster-rw:5432/unwitting_fox_jumps'
           catalog:
-            connection: 'postgresql://app:qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL@backstage-cluster-rw:5432/app'
+            connection: 'postgresql://backstage_plugin_catalog:password1@backstage-cluster-rw:5432/backstage_plugin_catalog'
 
     kubernetes:
       serviceLocatorMethod:
