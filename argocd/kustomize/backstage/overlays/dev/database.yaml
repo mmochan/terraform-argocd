@@ -14,7 +14,7 @@ spec:
     #     name: backstage-db-secret
 
     initdb:
-      - database: backstage_plugin_catalog
+      backstage_plugin_catalog:
         roles:
           - name: backstage_plugin_catalog
             password: "password1"
@@ -27,7 +27,7 @@ spec:
           #     - CREATEDB
           #     - CREATEROLE
 
-      - database: backstage_plugin_scaffolderer
+      backstage_plugin_scaffolderer:
         roles:
           - name: backstage_plugin_scaffolderer
             password: "password2"
