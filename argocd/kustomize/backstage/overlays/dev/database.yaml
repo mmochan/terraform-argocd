@@ -6,12 +6,12 @@ metadata:
 spec:
   instances: 3
 
-  bootstrap:
-    initdb:
-      database: backstage_plugin_catalog
-      owner: backstage
-      secret:
-        name: backstage-db-secret
+  # bootstrap:
+  #   initdb:
+  #     database: backstage_plugin_catalog
+  #     owner: backstage
+  #     secret:
+  #       name: backstage-db-secret
 
   storage:
     size: 1Gi
@@ -20,12 +20,12 @@ spec:
     enablePodMonitor: false
 
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: backstage-db-secret
-  namespace: backstage
-data:
-  username: backstage
-  password: password
-type: kubernetes.io/basic-auth
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: backstage-db-secret
+#   namespace: backstage
+# data:
+#   username: backstage
+#   password: password
+# type: kubernetes.io/basic-auth
