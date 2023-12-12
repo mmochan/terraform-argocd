@@ -11,5 +11,13 @@ helmCharts:
     namespace: admin
     includeCRDs: true
     valuesFile: sealed-secrets.yaml
+  # https://github.com/cloudnative-pg/charts
+  - name: cloudnative-pg
+    repo: https://cloudnative-pg.github.io/charts
+    version: "0.19.1"
+    releaseName: cloudnative-pg
+    namespace: admin
+    includeCRDs: true
+    # valuesFile: cloudnative-pg.yaml
 
 resources: []

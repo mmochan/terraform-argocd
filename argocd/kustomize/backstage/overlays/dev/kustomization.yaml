@@ -19,5 +19,6 @@ helmCharts:
   valuesFile: values.yaml
 
 resources:
+  - database.yaml
   - default-cluster-admin-clusterrolebinding.yaml
   - ../../base

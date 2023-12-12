@@ -1,8 +1,11 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: cluster-backstage
+  name: backstage-cluster
 spec:
   instances: 3
   storage:
     size: 1Gi
+
+  monitoring:
+    enablePodMonitor: false
