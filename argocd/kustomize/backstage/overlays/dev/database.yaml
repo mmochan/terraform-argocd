@@ -4,6 +4,12 @@ metadata:
   name: backstage-cluster
 spec:
   instances: 3
+
+  bootstrap:
+    initdb:
+      - type: sql
+        content: CREATE DATABASE backstage_plugin_catalog;
+
   storage:
     size: 1Gi
 
