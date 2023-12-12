@@ -14,26 +14,34 @@ spec:
     #     name: backstage-db-secret
 
     initdb:
-      backstage_plugin_catalog:
-        roles:
-          - name: backstage_plugin_catalog
-            password: "password1"
-            options:
-              - CREATEDB
-              - CREATEROLE
-          # - name: backstage_plugin_scaffolderer
-          #   password: "password2"
-          #   options:
-          #     - CREATEDB
-          #     - CREATEROLE
+      database: app
+      owner: app
+      dataChecksums: true
+      localeCollate: 'en_US'
+      localeCType: 'en_US'
+      postInitSQL:
+        - CREATE DATABASE backstage_plugin_catalog
+        - CREATE DATABASE backstage_plugin_scaffolderer
+      # backstage_plugin_catalog:
+      #   roles:
+      #     - name: backstage_plugin_catalog
+      #       password: "password1"
+      #       options:
+      #         - CREATEDB
+      #         - CREATEROLE
+      #     # - name: backstage_plugin_scaffolderer
+      #     #   password: "password2"
+      #     #   options:
+      #     #     - CREATEDB
+      #     #     - CREATEROLE
 
-      backstage_plugin_scaffolderer:
-        roles:
-          - name: backstage_plugin_scaffolderer
-            password: "password2"
-            options:
-              - CREATEDB
-              - CREATEROLE
+      # backstage_plugin_scaffolderer:
+      #   roles:
+      #     - name: backstage_plugin_scaffolderer
+      #       password: "password2"
+      #       options:
+      #         - CREATEDB
+      #         - CREATEROLE
 
   storage:
     size: 1Gi
