@@ -256,6 +256,7 @@ backstage:
     #           database: app
 
     backend:
+      baseUrl: http://localhost:7007
       database:
         client: pg
         connection: 'postgresql://backstage-cluster-rw:5432'
