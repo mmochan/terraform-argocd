@@ -241,11 +241,15 @@ backstage:
     organization:
       name: "Aramiske Company"
 
-    # backend:
-    #   baseUrl: http://localhost:7007
-      # database:
-      #   client: pg
-      #   # connection: ':memory:'
+    backend:
+      baseUrl: http://localhost:7007
+      database:
+        client: pg
+        connection:
+          host: backstage-cluster-rw
+          user: app
+          password: qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL
+          port: 5432
 
     kubernetes:
       serviceLocatorMethod:
