@@ -254,7 +254,7 @@ backstage:
         plugin:
           auth:
             connection:
-              database: pg_auth_set_by_user
+              database: app
 
     kubernetes:
       serviceLocatorMethod:
