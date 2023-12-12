@@ -21,7 +21,7 @@ spec:
       localeCType: 'en_US'
       postInitSQL:
         - CREATE DATABASE backstage_plugin_catalog
-        - CREATE DATABASE backstage_plugin_scaffolderer
+        - CREATE DATABASE backstage_plugin_scaffolder
       # backstage_plugin_catalog:
       #   roles:
       #     - name: backstage_plugin_catalog
