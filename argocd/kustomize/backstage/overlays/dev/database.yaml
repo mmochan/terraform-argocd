@@ -16,9 +16,6 @@ spec:
     initdb:
       database: app
       owner: app
-      dataChecksums: true
-      localeCollate: 'en_US'
-      localeCType: 'en_US'
       postInitSQL:
         - CREATE DATABASE backstage_plugin_catalog
         - CREATE DATABASE backstage_plugin_scaffolder
