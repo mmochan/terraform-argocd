@@ -261,6 +261,8 @@ backstage:
         client: pg
         connection: 'postgresql://backstage-cluster-rw:5432'
         plugin:
+          auth:
+            connection: 'postgresql://app:iWR6tdIfa7h1On4jW8YKkIicGMabtKRz8NMv6av78NXaWlVPLGcrvvErftuM1rPz@backstage-cluster-rw:5432/backstage_plugin_auth'
           scaffolder:
             connection: 'postgresql://app:iWR6tdIfa7h1On4jW8YKkIicGMabtKRz8NMv6av78NXaWlVPLGcrvvErftuM1rPz@backstage-cluster-rw:5432/backstage_plugin_scaffolder'
           catalog:
