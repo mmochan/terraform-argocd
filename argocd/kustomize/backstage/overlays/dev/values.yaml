@@ -251,6 +251,10 @@ backstage:
           password: qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL
           port: 5432
           database: app
+        plugin:
+          auth:
+            connection:
+              database: pg_auth_set_by_user
 
     kubernetes:
       serviceLocatorMethod:
