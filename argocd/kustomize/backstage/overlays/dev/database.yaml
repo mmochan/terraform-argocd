@@ -21,9 +21,9 @@ spec:
         - CREATE DATABASE backstage_plugin_scaffolder
         - GRANT ALL PRIVILEGES ON DATABASE backstage_plugin_catalog TO app
         - GRANT ALL PRIVILEGES ON DATABASE backstage_plugin_scaffolder TO app
-        - connect backstage_plugin_catalog
+        - \c backstage_plugin_catalog postgres
         - GRANT ALL ON SCHEMA public TO app
-        - connect backstage_plugin_scaffolder
+        - \c backstage_plugin_scaffolder postgres
         - GRANT ALL ON SCHEMA public TO app
       # backstage_plugin_catalog:
       #   roles:
