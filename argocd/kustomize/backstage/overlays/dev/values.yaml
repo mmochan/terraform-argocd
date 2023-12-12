@@ -241,19 +241,27 @@ backstage:
     organization:
       name: "Aramiske Company"
 
+    # backend:
+    #   baseUrl: http://localhost:7007
+    #   database:
+    #     client: pg
+    #     connection:
+    #       host: backstage-cluster-rw
+    #       user: app
+    #       password: qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL
+    #       port: 5432
+    #     plugin:
+    #       auth:
+    #         connection:
+    #           database: app
+
     backend:
-      baseUrl: http://localhost:7007
       database:
         client: pg
-        connection:
-          host: backstage-cluster-rw
-          user: app
-          password: qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL
-          port: 5432
+        connection: 'postgresql://backstage-cluster-rw:5432'
         plugin:
-          auth:
-            connection:
-              database: app
+          catalog:
+            connection: 'postgresql://app:qneAafwomGUlQP41Pub1jq4QhkjhJUlwkUJnXoUF47K6V2ox8ZeRPtcKFN3FQfGL@backstage-cluster-rw:5432/app'
 
     kubernetes:
       serviceLocatorMethod:
