@@ -263,7 +263,7 @@ backstage:
           host: "backstage-cluster-rw"
           port: 5432
           user: app
-          password: iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw
+          password: znFNZv80YutW98zHTpgc0zLgKZIpLPqr2EFdrJewMo0nczBDc8zbaM6I8QfWjRhJ
 
 
         # connection: 'postgresql://backstage-cluster-rw:5432'
