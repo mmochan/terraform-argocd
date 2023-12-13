@@ -260,6 +260,7 @@ backstage:
       database:
         client: pg
         connection: 'postgresql://backstage-cluster-rw:5432'
+        pluginDivisionMode: schema
         plugin:
           app:
             connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_app'
