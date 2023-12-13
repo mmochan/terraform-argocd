@@ -18,6 +18,7 @@ spec:
       owner: app
       postInitSQL:
         - ALTER USER app CREATEDB
+        - ALTER USER app CREATEROLE
         # - CREATE DATABASE backstage_plugin_catalog
         # - CREATE DATABASE backstage_plugin_scaffolder
         # - CREATE DATABASE backstage_plugin_auth
