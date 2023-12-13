@@ -262,13 +262,13 @@ backstage:
         connection: 'postgresql://backstage-cluster-rw:5432'
         plugin:
           app:
-            connection: 'postgresql://app:lS0PoXXDhLxnEYbI77NS5Z9USILB3rGcqZ1BW4F3WUQIsKYsralXw9dPvVHLafPs@backstage-cluster-rw:5432/backstage_plugin_app'
+            connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_app'
           auth:
-            connection: 'postgresql://app:lS0PoXXDhLxnEYbI77NS5Z9USILB3rGcqZ1BW4F3WUQIsKYsralXw9dPvVHLafPs@backstage-cluster-rw:5432/backstage_plugin_auth'
+            connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_auth'
           scaffolder:
-            connection: 'postgresql://app:lS0PoXXDhLxnEYbI77NS5Z9USILB3rGcqZ1BW4F3WUQIsKYsralXw9dPvVHLafPs@backstage-cluster-rw:5432/backstage_plugin_scaffolder'
+            connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_scaffolder'
           catalog:
-            connection: 'postgresql://app:lS0PoXXDhLxnEYbI77NS5Z9USILB3rGcqZ1BW4F3WUQIsKYsralXw9dPvVHLafPs@backstage-cluster-rw:5432/backstage_plugin_catalog'
+            connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_catalog'
 
     kubernetes:
       serviceLocatorMethod:
