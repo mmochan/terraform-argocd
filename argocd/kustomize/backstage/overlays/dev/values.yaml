@@ -239,8 +239,12 @@ backstage:
       baseUrl: http://localhost:3000
 
     techdocs:
+      builder: local
       generator:
         runIn: local
+      publisher:
+        type: local
+
 
     organization:
       name: "Aramiske Company"
