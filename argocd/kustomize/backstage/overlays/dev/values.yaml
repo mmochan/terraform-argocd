@@ -235,7 +235,7 @@ backstage:
   # -- Generates ConfigMap and configures it in the Backstage pods
   appConfig:
     app:
-      title: "Aramiske Backstage App"
+      title: "Stanwell SMP Backstage App"
       baseUrl: http://localhost:3000
 
     techdocs:
@@ -247,7 +247,7 @@ backstage:
 
 
     organization:
-      name: "Aramiske Company"
+      name: "Stanwell SMP Project"
 
     # backend:
     #   baseUrl: http://localhost:7007
