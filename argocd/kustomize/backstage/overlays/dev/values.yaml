@@ -238,6 +238,10 @@ backstage:
       title: "Aramiske Backstage App"
       baseUrl: http://localhost:3000
 
+    techdocs:
+      generator:
+        runIn: local
+
     organization:
       name: "Aramiske Company"
 
