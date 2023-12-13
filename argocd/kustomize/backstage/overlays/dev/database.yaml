@@ -17,26 +17,27 @@ spec:
       database: app
       owner: app
       postInitSQL:
-        - CREATE DATABASE backstage_plugin_catalog
-        - CREATE DATABASE backstage_plugin_scaffolder
-        - CREATE DATABASE backstage_plugin_auth
-        - CREATE DATABASE backstage_plugin_app
-        - GRANT ALL PRIVILEGES ON DATABASE backstage_plugin_catalog TO app
-        - GRANT ALL PRIVILEGES ON DATABASE backstage_plugin_scaffolder TO app
-        - GRANT ALL PRIVILEGES on DATABASE backstage_plugin_auth TO app
-        - GRANT ALL PRIVILEGES on DATABASE backstage_plugin_app TO app
-        - GRANT CONNECT ON DATABASE backstage_plugin_catalog TO app
-        - GRANT ALL ON SCHEMA public TO app
-        - ALTER DATABASE backstage_plugin_catalog OWNER TO app
-        - GRANT CONNECT ON DATABASE backstage_plugin_scaffolder TO app
-        - GRANT ALL ON SCHEMA public TO app
-        - ALTER DATABASE backstage_plugin_scaffolder OWNER TO app
-        - GRANT CONNECT ON DATABASE backstage_plugin_auth TO app
-        - GRANT ALL ON SCHEMA public TO app
-        - ALTER DATABASE backstage_plugin_auth OWNER TO app
-        - GRANT CONNECT ON DATABASE backstage_plugin_app TO app
-        - GRANT ALL ON SCHEMA public TO app
-        - ALTER DATABASE backstage_plugin_app OWNER TO app
+        - ALTER USER app CREATEDB
+        # - CREATE DATABASE backstage_plugin_catalog
+        # - CREATE DATABASE backstage_plugin_scaffolder
+        # - CREATE DATABASE backstage_plugin_auth
+        # - CREATE DATABASE backstage_plugin_app
+        # - GRANT ALL PRIVILEGES ON DATABASE backstage_plugin_catalog TO app
+        # - GRANT ALL PRIVILEGES ON DATABASE backstage_plugin_scaffolder TO app
+        # - GRANT ALL PRIVILEGES on DATABASE backstage_plugin_auth TO app
+        # - GRANT ALL PRIVILEGES on DATABASE backstage_plugin_app TO app
+        # - GRANT CONNECT ON DATABASE backstage_plugin_catalog TO app
+        # - GRANT ALL ON SCHEMA public TO app
+        # - ALTER DATABASE backstage_plugin_catalog OWNER TO app
+        # - GRANT CONNECT ON DATABASE backstage_plugin_scaffolder TO app
+        # - GRANT ALL ON SCHEMA public TO app
+        # - ALTER DATABASE backstage_plugin_scaffolder OWNER TO app
+        # - GRANT CONNECT ON DATABASE backstage_plugin_auth TO app
+        # - GRANT ALL ON SCHEMA public TO app
+        # - ALTER DATABASE backstage_plugin_auth OWNER TO app
+        # - GRANT CONNECT ON DATABASE backstage_plugin_app TO app
+        # - GRANT ALL ON SCHEMA public TO app
+        # - ALTER DATABASE backstage_plugin_app OWNER TO app
       # backstage_plugin_catalog:
       #   roles:
       #     - name: backstage_plugin_catalog
