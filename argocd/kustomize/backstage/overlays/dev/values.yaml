@@ -273,18 +273,38 @@ backstage:
           user: app
           password: zqQr7WVBdmYCB2SuzVRfdxfOEPDvMH5qe1kcm8pI3JwVT8yLqE8QvCKYS53kCHJB
 
+    catalog:
+      import:
+        entityFilename: catalog-info.yaml
+        pullRequestBranchName: backstage-integration
+      rules:
+        - allow: [Component, System, API, Resource, Location]
+      locations:
+        # Local example data, file locations are relative to the backend process, typically `packages/backend`
+        - type: file
+          target: ../../examples/entities.yaml
 
-        # connection: 'postgresql://backstage-cluster-rw:5432'
-        # pluginDivisionMode: schema
-        # plugin:
-        #   app:
-        #     connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_app'
-        #   auth:
-        #     connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_auth'
-        #   scaffolder:
-        #     connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_scaffolder'
-        #   catalog:
-        #     connection: 'postgresql://app:iax8L0fnIXd9arYkvwrJyn9kUFqtEzmuDUbP96wjCKs0uuYStJ9iiyzP4hUIm7Qw@backstage-cluster-rw:5432/backstage_plugin_catalog'
+        # Local example template
+        - type: file
+          target: ../../examples/template/template.yaml
+          rules:
+            - allow: [Template]
+
+        # Local example organizational data
+        - type: file
+          target: ../../examples/org.yaml
+          rules:
+            - allow: [User, Group]
+
+        ## Uncomment these lines to add more example data
+        # - type: url
+        #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+
+        # Uncomment these lines to add an example org
+        - type: url
+          target: https://github.com/mmochan/terraform-backstage/blob/main/catalog-model/acme-corp.yaml
+          rules:
+            - allow: [User, Group]
 
     kubernetes:
       serviceLocatorMethod:
