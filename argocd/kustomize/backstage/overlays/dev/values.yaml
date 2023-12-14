@@ -142,7 +142,8 @@ backstage:
   extraEnvVarsCM: []
 
   # -- Backstage container environment variables from existing Secrets
-  extraEnvVarsSecrets: []
+  extraEnvVarsSecrets:
+  - backstage-cluster-app
 
   # -- Backstage container additional volume mounts
   extraVolumeMounts: []
@@ -271,7 +272,7 @@ backstage:
           host: "backstage-cluster-rw"
           port: 5432
           user: app
-          password: zqQr7WVBdmYCB2SuzVRfdxfOEPDvMH5qe1kcm8pI3JwVT8yLqE8QvCKYS53kCHJB
+          password: ${password}
 
     catalog:
       import:
@@ -306,18 +307,18 @@ backstage:
           rules:
             - allow: [User, Group]
 
-    kubernetes:
-      serviceLocatorMethod:
-        type: multiTenant
-      clusterLocatorMethods:
-        - type: config
-          clusters:
-            - url: host.docker.internal
-              name: kind
-              authProvider: serviceAccount
-              skipTLSVerify: true
-              skipMetricsLookup: true
-              serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IkZ6WGdwR3FfdjZkN1ZzNFZsWE5YYjFGLVBqRVh3U3VSY0FDYVcxc3d5RFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzAyMjc4NDMyLCJpYXQiOjE3MDIyNzQ4MzIsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJiYWNrc3RhZ2UiLCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiYmFja3N0YWdlIiwidWlkIjoiMjJmYjdiYzctZDU1Ny00ZWYwLTg0YjAtMDUxMjMwNGM3MTkxIn19LCJuYmYiOjE3MDIyNzQ4MzIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpiYWNrc3RhZ2U6YmFja3N0YWdlIn0.mgj7vxIsgy0gY_N7TdMpS0pUW_LlUNcZnPvcGntBXX2PzJNtIsilkHqeQt0UG7iZrICBvQFk3m8_bna20hEy929UXpWBVh5xpUuE9uSgf2ay1gqY2KK-V1O5q-UswCMJB94TMzj5k1TqBfTQOzb-MhiUMftwt_Us2xG0XtfQ-eGH2V4toWTdrGPRx4viGX2C2Sw2-E8syMHhPZXYEfs755klGEZtu4lhFu-nufV1Hzfucl_5bhCwuz4GljCyvQdAgbFVmoyVEnk59sUzv9T7O-HM4Q94iPjFgiP9lDCoQy05BimRfsCq7Z1gnKt6HMNQpePUJO3DLLKj9wdZaDbdiQ
+    # kubernetes:
+    #   serviceLocatorMethod:
+    #     type: multiTenant
+    #   clusterLocatorMethods:
+    #     - type: config
+    #       clusters:
+    #         - url: host.docker.internal
+    #           name: kind
+    #           authProvider: serviceAccount
+    #           skipTLSVerify: true
+    #           skipMetricsLookup: true
+    #           serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IkZ6WGdwR3FfdjZkN1ZzNFZsWE5YYjFGLVBqRVh3U3VSY0FDYVcxc3d5RFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzAyMjc4NDMyLCJpYXQiOjE3MDIyNzQ4MzIsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJiYWNrc3RhZ2UiLCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiYmFja3N0YWdlIiwidWlkIjoiMjJmYjdiYzctZDU1Ny00ZWYwLTg0YjAtMDUxMjMwNGM3MTkxIn19LCJuYmYiOjE3MDIyNzQ4MzIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpiYWNrc3RhZ2U6YmFja3N0YWdlIn0.mgj7vxIsgy0gY_N7TdMpS0pUW_LlUNcZnPvcGntBXX2PzJNtIsilkHqeQt0UG7iZrICBvQFk3m8_bna20hEy929UXpWBVh5xpUuE9uSgf2ay1gqY2KK-V1O5q-UswCMJB94TMzj5k1TqBfTQOzb-MhiUMftwt_Us2xG0XtfQ-eGH2V4toWTdrGPRx4viGX2C2Sw2-E8syMHhPZXYEfs755klGEZtu4lhFu-nufV1Hzfucl_5bhCwuz4GljCyvQdAgbFVmoyVEnk59sUzv9T7O-HM4Q94iPjFgiP9lDCoQy05BimRfsCq7Z1gnKt6HMNQpePUJO3DLLKj9wdZaDbdiQ
 
 
 
