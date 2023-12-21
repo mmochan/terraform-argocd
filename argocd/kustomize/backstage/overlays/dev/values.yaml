@@ -263,6 +263,12 @@ backstage:
     #       auth:
     #         connection:
     #           database: app
+    scaffolder:
+      defaultAuthor:
+        name: M.C. Hammer # Defaults to `Scaffolder`
+        email: hammer@donthurtem.com # Defaults to `scaffolder@backstage.io`
+      defaultCommitMessage: "U can't touch this" # Defaults to 'Initial commit'
+
 
     backend:
       baseUrl: http://localhost:7007
