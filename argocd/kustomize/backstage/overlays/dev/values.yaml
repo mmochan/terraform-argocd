@@ -371,6 +371,9 @@ backstage:
         - type: url
           target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/examples/documented-component/catalog-info.yaml
 
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/catalog-info.yaml
+
 
         # - type: file
         #   target: ../../examples/entities.yaml
