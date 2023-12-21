@@ -269,6 +269,11 @@ backstage:
         email: hammer@donthurtem.com # Defaults to `scaffolder@backstage.io`
       defaultCommitMessage: "U can't touch this" # Defaults to 'Initial commit'
 
+    # integrations:
+    #   github:
+    #     - host: github.com
+    #       token: ${GITHUB_TOKEN}
+
 
     backend:
       baseUrl: http://localhost:7007
@@ -279,6 +284,44 @@ backstage:
           port: 5432
           user: app
           password: ${password}
+
+    locations:
+      # Add a location here to ingest it, for example from a URL:
+      #
+      #     - type: url
+      #       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+      #
+      # For local development you can use a file location instead:
+      #
+      #     - type: file
+      #       target: ../catalog-model/examples/all-components.yaml
+      #
+      # File locations are relative to the current working directory of the
+      # backend, for example packages/backend/.
+
+      # Backstage example entities
+      - type: file
+        target: ../catalog-model/examples/all.yaml
+      # Backstage example groups and users
+      - type: file
+        target: ../catalog-model/examples/acme-corp.yaml
+        rules:
+          - allow: [User, Group]
+      # Example component for github-actions and TechDocs
+      - type: file
+        target: ../../plugins/github-actions/examples/sample.yaml
+      # Example component for TechDocs
+      - type: file
+        target: ../../plugins/techdocs-backend/examples/documented-component/catalog-info.yaml
+      # Example component for ADRs
+      - type: file
+        target: ../../plugins/adr/examples/component/catalog-info.yaml
+      # Backstage example templates
+      - type: file
+        target: ../../plugins/scaffolder-backend/sample-templates/all-templates.yaml
+        rules:
+          - allow: [Template]
+
 
     catalog:
       import:
