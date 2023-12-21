@@ -285,26 +285,28 @@ backstage:
           user: app
           password: ${password}
 
-    locations:
+    # locations:
       # Add a location here to ingest it, for example from a URL:
       #
-      - type: url
-        target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+      # - type: url
+      #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
-      - type: url
-        target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
+      # - type: url
+      #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
 
-      - type: url
-        target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+      # # - type: url
+      # #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
 
-      - type: url
-        target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/all-templates.yaml
+      # #plugins
 
-      - type: url
-        target: https://github.com/backstage/backstage/blob/master/plugins/adr/examples/component/catalog-info.yaml
+      # - type: url
+      #   target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/all-templates.yaml
 
-      - type: url
-        target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/examples/documented-component/catalog-info.yaml
+      # - type: url
+      #   target: https://github.com/backstage/backstage/blob/master/plugins/adr/examples/component/catalog-info.yaml
+
+      # - type: url
+      #   target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/examples/documented-component/catalog-info.yaml
       #
       # For local development you can use a file location instead:
       #
@@ -343,23 +345,42 @@ backstage:
         entityFilename: catalog-info.yaml
         pullRequestBranchName: backstage-integration
       rules:
-        - allow: [Component, System, API, Resource, Location]
+        - allow: [Component, System, API, Resource, Domain, Location]
       locations:
         # Local example data, file locations are relative to the backend process, typically `packages/backend`
-        - type: file
-          target: ../../examples/entities.yaml
 
-        # Local example template
-        - type: file
-          target: ../../examples/template/template.yaml
-          rules:
-            - allow: [Template]
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
 
-        # Local example organizational data
-        - type: file
-          target: ../../examples/org.yaml
-          rules:
-            - allow: [User, Group]
+        # - type: url
+        #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+
+        #plugins
+
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/all-templates.yaml
+
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/adr/examples/component/catalog-info.yaml
+
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/examples/documented-component/catalog-info.yaml
+
+
+        # - type: file
+        #   target: ../../examples/entities.yaml
+
+        # # Local example template
+        # - type: file
+        #   target: ../../examples/template/template.yaml
+        #   rules:
+        #     - allow: [Template]
+
+        # # Local example organizational data
+        # - type: file
+        #   target: ../../examples/org.yaml
+        #   rules:
+        #     - allow: [User, Group]
 
         ## Uncomment these lines to add more example data
         # - type: url
