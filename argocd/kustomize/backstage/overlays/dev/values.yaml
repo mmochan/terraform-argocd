@@ -360,6 +360,12 @@ backstage:
 
         #plugins
         - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/catalog-info.yaml
+
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-common/catalog-info.yaml
+
+        - type: url
           target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend-module-azure/catalog-info.yaml
 
         - type: url
@@ -373,6 +379,9 @@ backstage:
 
         - type: url
           target: https://github.com/backstage/backstage/blob/master/plugins/techdocs-backend/catalog-info.yaml
+
+        - type: url
+          target: https://github.com/backstage/backstage/blob/master/plugins/techdocs/catalog-info.yaml
 
 
         # - type: file
