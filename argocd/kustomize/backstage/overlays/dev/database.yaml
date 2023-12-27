@@ -4,7 +4,7 @@ metadata:
   name: backstage-cluster
   namespace: backstage
 spec:
-  instances: 1
+  instances: 3
 
   bootstrap:
     # initdb:
